@@ -1,28 +1,27 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template lang="html">
+  <div>
+    <router-view v-bind:films="films" v-bind:favourites="favourites" v-bind:watched="watched"></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  name: "app",
+  data() {
+    return {
+      films: [],
+      favourites: [],
+      watched: []
+    }
+  },
+  mounted () {
+    fetch("https://ghibliapi.herokuapp.com/films")
+    .then(response => response.json())
+    .then(data => this.films = data)
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="css" scoped>
 </style>

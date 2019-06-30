@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="film-list-container">
-    <div class="film-list">
+  <div class="film-entry-container">
+    <div class="film-entry">
       <li class="film-item" v-on:click="handleSelectClick">{{ film.title }}</li>
     </div>
     <div class="button-container">
@@ -33,14 +33,14 @@ export default {
 <style lang="css" scoped>
   li {
     list-style-type: none;
-    flex: row;
   }
 
-  .film-list-container {
+  .film-entry-container {
     width: 450px;
+    border-color: lightgreen;
   }
 
-  .film-list {
+  .film-entry {
     width: 200px;
     float: left;
   }
@@ -48,15 +48,6 @@ export default {
   .button-container {
     float: right;
   }
-
-  /* .button {
-    border-color: lightgreen;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    border-radius: 5px;
-  } */
 
   .button:hover {
     background-color: lightgreen;

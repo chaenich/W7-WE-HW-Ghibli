@@ -14,22 +14,22 @@ export default {
 
 <style lang="css" scoped>
 
-.nav-bar {
-  align-content: center;
-  display: flex;
-  margin-left: 10%;
-  margin-right: 20%;
-}
+  .nav-bar {
+    align-content: center;
+    display: flex;
+    margin-left: 10%;
+    margin-right: 20%;
+  }
 
-a {
-  margin-right: 20px;
-  margin-left: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-  font: bold 30px;
-  border-radius: 10px;
-  background-color: lightgreen;
-}
+  a {
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font: bold 30px;
+    border-radius: 10px;
+    background-color: lightgreen;
+  }
 </style>

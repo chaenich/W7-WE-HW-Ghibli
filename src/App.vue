@@ -35,7 +35,7 @@ export default {
 
 <style lang="css" scoped>
 
-#app {
-  font-family: arial;
-}
+  #app {
+    font-family: arial;
+  }
 </style>

@@ -1,17 +1,14 @@
 <template lang="html">
   <div>
     <p>Please select which list to see or click on film name for more details</p>
-    <p></p>
     <nav-bar></nav-bar>
-    <router-view v-bind:films="films" v-bind:favourites="favourites" v-bind:watched="watched"></router-view>
-    <item-detail v-bind:film="selectedFilm"></item-detail>
+    <router-view v-bind:films="films" v-bind:selectedFilm="selectedFilm" v-bind:favourites="favourites" v-bind:watched="watched"></router-view>
   </div>
 </template>
 
 <script>
 import {eventBus} from "./main.js"
 import NavBar from "@/components/NavBar"
-import ItemDetail from "@/components/ItemDetail"
 
 export default {
   name: "app",
@@ -32,8 +29,7 @@ export default {
     eventBus.$on("film-selected", film => this.selectedFilm = film)
   },
   components: {
-    "nav-bar": NavBar,
-    "item-detail": ItemDetail
+    "nav-bar": NavBar
   }
 }
 </script>

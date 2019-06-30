@@ -14,13 +14,22 @@ export default {
   props: [ "film" ],
   methods: {
     handleFaveClick() {
-      eventBus.$emit("fave-button-clicked", this.film);
+      eventBus.$emit("fave-button-clicked", [ this.film, );
     },
     handleWatchedClick() {
       eventBus.$emit("watched-button-clicked", this.film);
     },
     handleSelectClick() {
       eventBus.$emit("film-selected", this.film);
+    }
+
+  },
+  computed: {
+    onFavouriteView: function(){
+      return this.$route.name === "favourite-view"
+    }
+    onWatchedView: function(){
+      return this.$route.name === "watched-view"
     }
   }
 }

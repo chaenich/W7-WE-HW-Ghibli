@@ -10,7 +10,7 @@ import FilmList from "@/components/FilmList.vue"
 
 export default {
   name: "film-view",
-  props: [ "films"],
+  props: [ "films" ],
   components: {
     "film-list": FilmList
   }

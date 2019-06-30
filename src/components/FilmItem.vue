@@ -1,8 +1,12 @@
 <template lang="html">
-  <div>
-    <li v-on:click="handleSelectClick">{{ film.title }}</li>
-    <button v-on:click="handleFaveClick"> Add to Favourites</button>
-    <button v-on:click="handleWatchedClick"> Add to Watched List</button>
+  <div class="film-list-container">
+    <div class="film-list">
+      <li class="film-item" v-on:click="handleSelectClick">{{ film.title }}</li>
+    </div>
+    <div class="button-container">
+      <button class="button" v-on:click="handleFaveClick"> Add to Favourites</button>
+      <button class="button" v-on:click="handleWatchedClick"> Add to Watched List</button>
+    </div>
   </div>
 </template>
 
@@ -14,22 +18,13 @@ export default {
   props: [ "film" ],
   methods: {
     handleFaveClick() {
-      eventBus.$emit("fave-button-clicked", [ this.film, );
+      eventBus.$emit("fave-button-clicked", this.film );
     },
     handleWatchedClick() {
       eventBus.$emit("watched-button-clicked", this.film);
     },
     handleSelectClick() {
       eventBus.$emit("film-selected", this.film);
-    }
-
-  },
-  computed: {
-    onFavouriteView: function(){
-      return this.$route.name === "favourite-view"
-    }
-    onWatchedView: function(){
-      return this.$route.name === "watched-view"
     }
   }
 }
@@ -38,5 +33,32 @@ export default {
 <style lang="css" scoped>
   li {
     list-style-type: none;
+    flex: row;
+  }
+
+  .film-list-container {
+    width: 450px;
+  }
+
+  .film-list {
+    width: 200px;
+    float: left;
+  }
+
+  .button-container {
+    float: right;
+  }
+
+  /* .button {
+    border-color: lightgreen;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border-radius: 5px;
+  } */
+
+  .button:hover {
+    background-color: lightgreen;
   }
 </style>

@@ -1,6 +1,5 @@
 <template lang="html">
-  <div>
-    <p>Please select which list to see or click on film name for more details</p>
+  <div id="app">
     <nav-bar></nav-bar>
     <router-view v-bind:films="films" v-bind:selectedFilm="selectedFilm" v-bind:favourites="favourites" v-bind:watched="watched"></router-view>
   </div>
@@ -35,4 +34,8 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+#app {
+  font-family: arial;
+}
 </style>

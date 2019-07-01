@@ -18,13 +18,28 @@ export default {
   props: [ "film" ],
   methods: {
     handleFaveClick() {
-      eventBus.$emit("fave-button-clicked", this.film );
+      // Initial attempt to pass up current route and film so to check if film already added
+      eventBus.$emit("fave-button-clicked", { "film": this.film, "view": this.currentView });
+      // eventBus.$emit("fave-button-clicked", this.film);
+
     },
     handleWatchedClick() {
       eventBus.$emit("watched-button-clicked", this.film);
     },
     handleSelectClick() {
       eventBus.$emit("film-selected", this.film);
+    }
+  },
+  computed: {
+    currentView: function(){
+      switch (this.$route.name) {
+        case "film-view":
+          return "FILM";
+        case "favourite-view":
+          return "FAVE";
+        case "watched-view" :
+          return "WTCH";
+      }
     }
   }
 }

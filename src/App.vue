@@ -23,12 +23,20 @@ export default {
     fetch("https://ghibliapi.herokuapp.com/films")
     .then(response => response.json())
     .then(data => this.films = data)
-    eventBus.$on("fave-button-clicked", film => this.favourites.push(film))
+
+    // Initial attempt to pass up current route and film so to check if film already added
+    eventBus.$on("fave-button-clicked", params => this.favourites.push(params.film))
     eventBus.$on("watched-button-clicked", film => this.watched.push(film))
     eventBus.$on("film-selected", film => this.selectedFilm = film)
   },
   components: {
     "nav-bar": NavBar
+  },
+  methods: {
+    // Initial attempt to pass up current route and film so to check if film already added
+    // newFave: function(params) {
+    //   console.log(params.view, params.film.title)
+    // }
   }
 }
 </script>
